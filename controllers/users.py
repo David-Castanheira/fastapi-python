@@ -53,4 +53,7 @@ async def get_user_by_id(user_id: int):
         query_select_by_id = "SELECT * FROM User WHERE id=%s"
         cursor.execute(query_select_by_id, (user_id,))
         users_result_id = cursor.fetchone()
-        return {"user_id": users_result_id}
+        if users_result_id:
+            return {"user_id": users_result_id}
+        else:
+            return {"message": "Usuário não encontrado"}
