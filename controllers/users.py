@@ -24,7 +24,7 @@ async def list_users():
                 # 4. Retorna os resultados
                 return users_result  
             else:
-                raise HTTPException(status_code=500, detail="Não foi possível a criação cursor.")
+                raise HTTPException(status_code=500, detail="Não foi possível criar o cursor.")
         else:
             raise HTTPException(status_code=500, detail="Não foi possível obter uma conexão com o banco.")
         
@@ -55,7 +55,7 @@ async def get_user_by_id(user_id: int):
                 else:
                     raise HTTPException(status_code=404, detail="Usuário não encontrado")
             else:
-                raise HTTPException(status_code=500, detail="Não foi possível a criação cursor.")
+                raise HTTPException(status_code=500, detail="Não foi possível criar o cursor.")
         
         else:
             raise HTTPException(status_code=500, detail="Não foi possível obter uma conexão com o banco.")
@@ -87,7 +87,7 @@ async def create_user(user: User):
                 cursor.execute(query_insert, values)
                 conn.commit()
             else:
-                raise HTTPException(status_code=500, detail="Não foi possível a criação cursor.")
+                raise HTTPException(status_code=500, detail="Não foi possível criar o cursor.")
         else:
             raise HTTPException(status_code=500, detail="Não foi possível obter uma conexão com o banco.")
 
@@ -122,7 +122,7 @@ async def update_user(user_id: int, user: User):
                 cursor.execute(query_update, values)
                 conn.commit()
             else:
-                raise HTTPException(status_code=500, detail="Não foi possível a criação cursor.")
+                raise HTTPException(status_code=500, detail="Não foi possível criar o cursor.")
         else:
             raise HTTPException(status_code=500, detail="Não foi possível obter uma conexão com o banco.")
 
@@ -148,7 +148,7 @@ async def delete_users(user_id: int):
                 cursor.execute(query_delete, (user_id,))
                 conn.commit()
             else:
-                raise HTTPException(status_code=500, detail="Não foi possível a criação cursor.")
+                raise HTTPException(status_code=500, detail="Não foi possível criar o cursor.")
         else:
             raise HTTPException(status_code=500, detail="Não foi possível obter uma conexão com o banco.")
 
