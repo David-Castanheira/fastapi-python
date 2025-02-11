@@ -24,3 +24,28 @@ def connection():
     except mysql.connector.Error as err:
         print(f"Erro na conexão com o banco: {err}")
         return None
+    
+def open_cursor(connection):
+    try:
+        if connection:
+            cursor = connection.cursor()
+            return cursor
+        else:
+            print(f"Não foi possível estabelecer conexão com o banco para a criação do cursor")
+            return None
+
+    except mysql.connector.Error as err:
+        print(f"Erro ao criar o cursor: {err}")
+        return None
+    
+def close_cursor_connection(connection, cursor):
+    try:
+        if cursor:
+            cursor.close()
+            print(f"Conexão com o cursor interrompida")
+        if connection:
+            connection.close()
+            print(f"Conexão com o banco interrompida")
+
+    except mysql.connector.Error as err:
+        print(f"Erro ao interromper a conexão ou o cursor: {err}")
