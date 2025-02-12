@@ -1,11 +1,11 @@
 import mysql.connector
-from fastapi import FastAPI, HTTPException, status
+from fastapi import APIRouter, HTTPException, status
 from entities.users_entities import *
 from config.database_config import connection, open_cursor, close_cursor_connection
 
-app = FastAPI()
+router = APIRouter()
 
-@app.get("/users", status_code=status.HTTP_302_FOUND)
+@router.get("/users", status_code=status.HTTP_302_FOUND)
 def list_users():
     conn = None 
     cursor = None
@@ -36,7 +36,7 @@ def list_users():
         # Encerra a conexão e o cursor
         close_cursor_connection(conn, cursor)
 
-@app.get("/users/{user_id}", status_code=status.HTTP_200_OK)
+@router.get("/users/{user_id}", status_code=status.HTTP_200_OK)
 def get_user_by_id(user_id: int): 
     conn = None
     cursor = None
@@ -67,7 +67,7 @@ def get_user_by_id(user_id: int):
     finally:
         close_cursor_connection(conn, cursor)
 
-@app.post("/users", status_code=status.HTTP_201_CREATED)
+@router.post("/users", status_code=status.HTTP_201_CREATED)
 def create_user(user: User):
     conn = None
     cursor = None
@@ -99,7 +99,7 @@ def create_user(user: User):
     finally:
         close_cursor_connection(conn, cursor)
 
-@app.put("/users/{user_id}", status_code=status.HTTP_200_OK)
+@router.put("/users/{user_id}", status_code=status.HTTP_200_OK)
 def update_user(user_id: int, user: User):
     conn = None
     cursor = None
@@ -136,7 +136,7 @@ def update_user(user_id: int, user: User):
     finally:
         close_cursor_connection(conn, cursor)
 
-@app.delete("/users/{user_id}", status_code=status.HTTP_200_OK)
+@router.delete("/users/{user_id}", status_code=status.HTTP_200_OK)
 def delete_user(user_id: int):
     conn = None
     cursor = None

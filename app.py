@@ -1,23 +1,18 @@
+import os
+import uvicorn
 from fastapi import FastAPI
-from fastapi.middleware.cors import CORSMiddleware
+from config.cors import *
+from controllers.users import router as users_router
 
 app = FastAPI()
 
-origins = [
-    "http://localhost",
-    "http://localhost.fastapi.app.com",
-    "https://localhost.fastapi.app.com",
-    "http://localhost:8080",
-]
-
-app.add_middleware(
-    CORSMiddleware,
-    allow_origins=origins,
-    allow_credentials=True,
-    allow_methods=["*"],
-    allow_headers=["*"],
-)
+# Inclui o router de users sem prefixo
+app.include_router(users_router)
 
 @app.get("/")
-async def main_app():
-    return {"message": "Olá, seja bem-vindo!"}
+async def root():
+    return {"message": "Bem-vindo à API de usuários!"}
+
+if __name__ == "__main__":
+    uvicorn.run("app:app", host="0.0.0.0",
+    port=int(os.environ.get("PORT", 8000)), reload=True)
