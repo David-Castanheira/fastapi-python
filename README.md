@@ -1,8 +1,8 @@
 # 🚧 FastAPI - Em construção... 🚧
-Este projeto demonstra a construção de uma [API RESTful]([https://aws.amazon.com/pt/what-is/restful-api/]) robusta e eficiente utilizando Python, Pydantic, FastAPI e um banco de dados MySQL. A API apresenta os principais endpoints para a construção de um arquitetura sólida baseada nas boas práticas.
+Este projeto demonstra a construção de uma [API RESTful]([https://aws.amazon.com/pt/what-is/restful-api/]) robusta e eficiente utilizando principalmente Python, Pydantic, FastAPI e um banco de dados MySQL. A API apresenta os principais endpoints para a construção de um arquitetura sólida baseada nas boas práticas.
 
 *   **[GET] /usuarios:** Lista todos os usuários;
-*   **[GET] /usuarios/{id}:** Retorna um usuário específico;
+*   **[GET] /usuarios/{id}:** Retorna um usuário específico com base na busca do ID;
 *   **[POST] /usuarios:** Cria um novo usuário;
 *   **[PUT] /usuarios/{id}:** Atualiza um usuário existente;
 *   **[DELETE] /usuarios/{id}:** Remove um usuário
@@ -10,22 +10,22 @@ Este projeto demonstra a construção de uma [API RESTful]([https://aws.amazon.c
 <img alt="APISwagger" src="img-readme/api-swagger.png"/>
 
 # Sumário
-   * [Tecnologias](#️-tecnologias)
-   * [Sobre a FastAPI](#️-sobre-a-fast-api)
-   <!-- * [Modelagem de negócios - Diagrama de classes](#-modelagem-de-negócios---diagrama-de-classes) -->
-   * [Instalação](#️-instalação)
-   * [Execução da aplicação](#-execução-da-aplicação)
-   * [Contribuição](#-contribuição)
+   * [Tecnologias](#️ferramentas-e-tecnologias-utilizadas)
+   * [Sobre a FastAPI](#️sobre-a-fast-api)
+   * [Instalação](#️instalação)
+   * [Execução da aplicação](#execução)
+   * [Contribuição](#contribuição)
 
-# Tecnologias
+# Ferramentas e tecnologias utilizadas
 *   **Python:** Linguagem de programação back-end;
 *   **Pydantic:** Biblioteca para validação de dados e serialização;
 *   **FastAPI:** Framework web moderno e de alto desempenho para construção de APIs;
 *   **MySQL:** Banco de dados relacional para persistência de dados;
+*   **MySQL Connector Python:** Biblioteca que estabelece f=de forma simples conexão entre a linguagem Python com SGBD MySQL;
 *   **Uvicorn:** Servidor ASGI para executar a aplicação FastAPI;
 *   **Docker:** Plataforma open-source que permite o empacotamento do software, proporcionando escalabilidade e independência de unidades executáveis;
 *   **Insomnia:** Plataforma utilizada para realização de testes de endpoints;
-*   **Pytest:** Framework para testes unitários e de integração.
+*   **Pytest:** Framework para testes unitários e de integração
 
 ## Sobre a FastAPI
 [FastAPI]([https://fastapi.tiangolo.com/learn/]) é um framework web moderno e de alto desempenho para construir APIs com Python. Ele se destaca por sua velocidade, facilidade de uso e recursos avançados, tornando-o uma excelente escolha para projetos back-end de todos os tamanhos. Se destaca por suas principais características:
@@ -42,7 +42,7 @@ Este projeto demonstra a construção de uma [API RESTful]([https://aws.amazon.c
 
 * Recursos avançados: FastAPI oferece recursos avançados como autenticação, autorização, gerenciamento de dependências e muito mais, permitindo que você construa APIs complexas e completas;
 
-* Integração com outras ferramentas: FastAPI integra-se facilmente com outras ferramentas populares do ecossistema Python, como bancos de dados relacionais e não relacionais, ferramentas de teste e muito mais.
+* Integração com outras ferramentas: FastAPI integra-se facilmente com outras ferramentas populares do ecossistema Python, como bancos de dados relacionais e não relacionais, ferramentas de teste e muito mais
 
 <!-- # Modelagem de negócios - Diagrama de classes -->
 
@@ -50,13 +50,13 @@ Este projeto demonstra a construção de uma [API RESTful]([https://aws.amazon.c
 1. Primeiramente, clone o repositório:
 
     ```
-    git clone [https://github.com/david-castanheira/fastapi-python.git](https://www.google.com/search?q=https://github.com/david-castanheira/fastapi-python.git)
+    git clone https://github.com/david-castanheira/fastapi-python.git
     ```
 
 2. Acesse a pasta do projeto no terminal ou CMD:
 
     ```
-    cd aplicacao-clinica
+    cd fastapi
     ```
 
 3. Execute o seguinte comando para instalar todas as dependências do projeto:
@@ -70,15 +70,11 @@ Este projeto demonstra a construção de uma [API RESTful]([https://aws.amazon.c
     *   Crie um arquivo `.env` na pasta 'config' do projeto;
     *   Defina as mesmas credenciais definidas no momento da instalação do MySQL
 
-    ```
-    DATABASE_URL=mysql+pymysql://usuario:root@host:3306/fastapi
-    ```
-
 ## Execução
 1. Inicie o servidor Uvicorn:
 
-    ```bash
-    poetry run uvicorn main:app --reload
+    ```
+    uvicorn controllers.users:app --reload
     ```
 
 2. Acesse a documentação interativa Swagger em:
@@ -87,6 +83,6 @@ Este projeto demonstra a construção de uma [API RESTful]([https://aws.amazon.c
     http://localhost:8000/docs
     ```
 
-# 🤝 Contribuição
-Contribuições são sempre bem-vindas! Se você tiver ideias para melhorar este projeto, sinta-se à vontade para abrir uma issue ou enviar um pull request.
+# Contribuição
+Contribuições são sempre bem-vindas! Se você tiver ideias para melhorar este projeto, sinta-se à vontade para abrir uma issue ou enviar um pull request
 

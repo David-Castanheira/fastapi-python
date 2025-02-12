@@ -1,6 +1,6 @@
 from typing import List, Optional 
 from uuid import UUID, uuid4
-from pydantic import BaseModel
+from pydantic import BaseModel, EmailStr
 from enum import Enum 
 from config import *
 
@@ -18,3 +18,4 @@ class User(BaseModel):
     last_name: str
     gender: Gender
     roles: List[Role]
+    email: EmailStr

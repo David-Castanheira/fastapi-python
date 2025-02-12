@@ -4,9 +4,10 @@ GRANT ALL PRIVILEGES ON fastapi.* TO 'root'@'localhost';
 
 FLUSH PRIVILEGES;
 
-use fastapi;
+CREATE DATABASE IF NOT EXISTS fastapi;
+USE fastapi;
 
-CREATE TABLE User (
+CREATE TABLE IF NOT EXISTS User (
 id INTEGER PRIMARY KEY AUTO_INCREMENT,
 first_name VARCHAR(30) NOT NULL,
 last_name VARCHAR(50) NOT NULL,
@@ -14,11 +15,9 @@ gender ENUM('male', 'female') NOT NULL,
 role ENUM('admin', 'user') NOT NULL
 ); 
 
-select * from User;
+SELECT * FROM User;
 
-desc User;
-
-alter table User change column role roles ENUM('admin', 'user') NOT NULL;
+DESC User;
 
 INSERT INTO User (first_name, last_name, gender, roles) values ('Linus', 'Torvalds', 'male', 'admin');
 INSERT INTO User (first_name, last_name, gender, roles) values ('Bill', 'Gates', 'male', 'admin');

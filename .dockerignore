@@ -1,0 +1,18 @@
+# Ambiente virtual 
+.env 
+.venv 
+env/ 
+venv/ 
+ENV/ 
+env.bak/ 
+venv.bak/ 
+
+# Arquivos e pastas na raíz do projeto
+LICENSE
+README.MD
+.gitignore
+
+img-readme/
+
+requests.json
+.requests.json
