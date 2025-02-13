@@ -10,7 +10,7 @@ app = FastAPI()
 app.include_router(users_router)
 
 @app.get("/")
-async def root():
+async def home():
     return {"message": "Bem-vindo à API de usuários!"}
 
 if __name__ == "__main__":

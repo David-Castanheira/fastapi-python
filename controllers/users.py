@@ -51,7 +51,7 @@ def get_user_by_id(user_id: int):
                 cursor.execute(query_select_by_id, (user_id,))
                 users_result_id = cursor.fetchone()
                 if users_result_id:
-                    return {"records": users_result_id}
+                    return users_result_id
                 else:
                     raise HTTPException(status_code=404, detail="Usuário não encontrado")
             else:
@@ -87,6 +87,7 @@ def create_user(user: User):
 
                 cursor.execute(query_insert, values)
                 conn.commit()
+                return {"message": "Usuário criado com sucesso!"}
             else:
                 raise HTTPException(status_code=500, detail="Não foi possível criar o cursor.")
         else:
@@ -124,6 +125,7 @@ def update_user(user_id: int, user: User):
 
                 cursor.execute(query_update, values)
                 conn.commit()
+                return {"message": "Usuário atualizado com sucesso!"}
             else:
                 raise HTTPException(status_code=500, detail="Não foi possível criar o cursor.")
         else:
@@ -150,6 +152,7 @@ def delete_user(user_id: int):
                 query_delete = "DELETE FROM User WHERE id = %s"
                 cursor.execute(query_delete, (user_id,))
                 conn.commit()
+                return {"message": "Usuário excluído com sucesso!"}
             else:
                 raise HTTPException(status_code=500, detail="Não foi possível criar o cursor.")
         else:
