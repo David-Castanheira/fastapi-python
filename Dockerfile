@@ -3,6 +3,8 @@ WORKDIR /app-fastapi
 
 COPY requirements.txt requirements.txt
 
+COPY app.py .
+
 RUN pip3 install --no-cache-dir -r requirements.txt
 
 RUN mkdir -p config controllers entities models tests
@@ -14,4 +16,4 @@ COPY models/ models/
 COPY tests/ tests/
 
 RUN chmod -R a+rwx config controllers entities models tests
-CMD ["fastapi", "run", "controllers/users.py", "--port", "80"]
+CMD ["uvicorn", "app:app", "--host", "0.0.0.0", "--port", "80"]

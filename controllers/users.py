@@ -29,7 +29,6 @@ def list_users():
             raise HTTPException(status_code=500, detail="Não foi possível obter uma conexão com o banco.")
         
     except mysql.connector.Error as err:
-        print(f"Erro na conexão com o banco: {err}")
         raise HTTPException(status_code=500, detail=f"Erro ao listar usuários: {err}")
     
     finally:

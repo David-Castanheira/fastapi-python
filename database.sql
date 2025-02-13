@@ -1,9 +1,3 @@
-SHOW GRANTS FOR 'root'@'localhost';
-
-GRANT ALL PRIVILEGES ON fastapi.* TO 'root'@'localhost';
-
-FLUSH PRIVILEGES;
-
 CREATE DATABASE IF NOT EXISTS fastapi;
 USE fastapi;
 
@@ -12,12 +6,8 @@ id INTEGER PRIMARY KEY AUTO_INCREMENT,
 first_name VARCHAR(30) NOT NULL,
 last_name VARCHAR(50) NOT NULL,
 gender ENUM('male', 'female') NOT NULL,
-role ENUM('admin', 'user') NOT NULL
+roles ENUM('admin', 'user') NOT NULL
 ); 
-
-SELECT * FROM User;
-
-DESC User;
 
 INSERT INTO User (first_name, last_name, gender, roles) values ('Linus', 'Torvalds', 'male', 'admin');
 INSERT INTO User (first_name, last_name, gender, roles) values ('Bill', 'Gates', 'male', 'admin');

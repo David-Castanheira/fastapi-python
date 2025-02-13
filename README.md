@@ -21,7 +21,7 @@ Este projeto demonstra a construção de uma [API RESTful]([https://aws.amazon.c
 *   **Pydantic:** Biblioteca para validação de dados e serialização;
 *   **FastAPI:** Framework web moderno e de alto desempenho para construção de APIs;
 *   **MySQL:** Banco de dados relacional para persistência de dados;
-*   **MySQL Connector Python:** Biblioteca que estabelece f=de forma simples conexão entre a linguagem Python com SGBD MySQL;
+*   **MySQL Connector Python:** Biblioteca que estabelece de forma simples conexão entre a linguagem Python com SGBD MySQL;
 *   **Uvicorn:** Servidor ASGI para executar a aplicação FastAPI;
 *   **Docker:** Plataforma open-source que permite o empacotamento do software, proporcionando escalabilidade e independência de unidades executáveis;
 *   **Insomnia:** Plataforma utilizada para realização de testes de endpoints;
@@ -43,8 +43,6 @@ Este projeto demonstra a construção de uma [API RESTful]([https://aws.amazon.c
 * Recursos avançados: FastAPI oferece recursos avançados como autenticação, autorização, gerenciamento de dependências e muito mais, permitindo que você construa APIs complexas e completas;
 
 * Integração com outras ferramentas: FastAPI integra-se facilmente com outras ferramentas populares do ecossistema Python, como bancos de dados relacionais e não relacionais, ferramentas de teste e muito mais
-
-<!-- # Modelagem de negócios - Diagrama de classes -->
 
 ## Instalação
 1. Primeiramente, clone o repositório:
@@ -74,7 +72,7 @@ Este projeto demonstra a construção de uma [API RESTful]([https://aws.amazon.c
 1. Inicie o servidor Uvicorn:
 
     ```
-    uvicorn controllers.users:app --reload
+    uvicorn app:app --reload
     ```
 
 2. Acesse a documentação interativa Swagger em:
