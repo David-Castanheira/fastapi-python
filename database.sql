@@ -22,3 +22,4 @@ INSERT INTO User (first_name, last_name, gender, roles) values ('Sam', 'Altman',
 INSERT INTO User (first_name, last_name, gender, roles) values ('Larry', 'Page', 'male', 'admin');
 INSERT INTO User (first_name, last_name, gender, roles) values ('Grace', 'Hopper', 'female', 'admin');
 INSERT INTO User (first_name, last_name, gender, roles) values ('Jean', 'Sammet', 'female', 'admin');
+INSERT INTO User (first_name, last_name, gender, roles) values ('Konrad', 'Suze', 'male', 'admin');

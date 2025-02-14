@@ -72,7 +72,7 @@ Este projeto demonstra a construção de uma [API RESTful]([https://aws.amazon.c
 1. Inicie o servidor Uvicorn:
 
     ```
-    uvicorn app:app --reload
+    uvicorn app:app
     ```
 
 2. Acesse a documentação interativa Swagger em:

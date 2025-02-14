@@ -115,7 +115,7 @@ def update_user(user_id: int, user: User):
                 last_name = %s,
                 gender = %s,
                 roles = %s,
-                email = %s,
+                email = %s
                 WHERE id = %s
                 """
 

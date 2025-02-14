@@ -4,6 +4,7 @@ WORKDIR /app-fastapi
 COPY requirements.txt requirements.txt
 
 COPY app.py .
+COPY pytest.ini pytest.ini
 
 RUN pip3 install --no-cache-dir -r requirements.txt
 
