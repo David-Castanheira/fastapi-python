@@ -77,6 +77,13 @@ def create_user(user: User):
             cursor = open_cursor(conn)
 
             if cursor:
+                query_check = "SELECT id FROM User WHERE email = %s"
+                cursor.execute(query_check, (user.email,))
+                existing_user = cursor.fetchone()
+
+                if existing_user:
+                    raise HTTPException(status_code=409, detail="Usuário já existente")
+                
                 query_insert = """
                 INSERT INTO User (first_name, last_name, gender, roles, email)
                 VALUES (%s, %s, %s, %s, %s)
@@ -94,7 +101,9 @@ def create_user(user: User):
 
     except mysql.connector.Error as err:
         print(f"Erro na conexão com o banco: {err}")
-        conn.rollback()
+        if conn:
+            conn.rollback()
+        raise HTTPException(status_code=500, detail=f"Erro ao criar usuário: {err}")
 
     finally:
         close_cursor_connection(conn, cursor)
