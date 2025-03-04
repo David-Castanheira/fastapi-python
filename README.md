@@ -1,4 +1,4 @@
-# 🚧 FastAPI - Em construção... 🚧
+# FastAPI
 Este projeto demonstra a construção de uma [API RESTful]([https://aws.amazon.com/pt/what-is/restful-api/]) robusta e eficiente utilizando principalmente Python, Pydantic, FastAPI e um banco de dados MySQL. A API apresenta os principais endpoints para a construção de um arquitetura sólida baseada nas boas práticas.
 
 *   **[GET] /usuarios:** Lista todos os usuários;
